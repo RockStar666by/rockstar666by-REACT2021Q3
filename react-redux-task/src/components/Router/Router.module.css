@@ -1,0 +1,37 @@
+header {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100px;
+  width: 1440px;
+  background-color: rgb(41, 41, 41);
+}
+.list {
+  width: 170px;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.headerButton {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.selected {
+  color: rgb(41, 41, 41);
+  background: white;
+  border-radius: 4px;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+  width: 1440px;
+}
