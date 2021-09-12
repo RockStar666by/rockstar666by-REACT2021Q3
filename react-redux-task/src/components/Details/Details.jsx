@@ -1,26 +1,24 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React from 'react';
 import { useParams } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const Details = () => {
+  const dataValue = useSelector((state) => state.data);
   const { id } = useParams();
-  const [articles, setArticles] = useState([]);
-
-  React.useEffect(() => {
-    axios.get(`${process.env.API_URL}v2/everything?q=${id}&apiKey=${process.env.API_KEY}`).then((response) => {
-      setArticles(response.data.articles[0]);
-    });
-  }, [id]);
+  const articlesFiltered = dataValue.filter((data) => {
+    return data.title === id;
+  });
+  const article = articlesFiltered[0];
 
   return (
     <div>
       <h1>Requested topic ID: {id}</h1>
-      <img src={articles.urlToImage} alt={articles.title} style={{ maxWidth: 800 }}></img>
-      <div>Title: {articles.title}</div>
-      <div>Author: {articles.author}</div>
-      <div>Description: {articles.description}</div>
-      <div>Published: {articles.publishedAt}</div>
-      <div>Content: {articles.content}</div>
+      <img src={article.urlToImage} alt={article.title} style={{ maxWidth: 800 }}></img>
+      <div>Title: {article.title}</div>
+      <div>Author: {article.author}</div>
+      <div>Description: {article.description}</div>
+      <div>Published: {article.publishedAt}</div>
+      <div>Content: {article.content}</div>
     </div>
   );
 };

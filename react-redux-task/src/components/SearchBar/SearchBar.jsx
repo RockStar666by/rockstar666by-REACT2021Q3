@@ -15,9 +15,9 @@ const SearchBar = () => {
   const postsPerPage = useSelector((state) => state.postsPerPage);
   const isLoading = useSelector((state) => state.isLoading);
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    await dispatch(getArticles(searchValue, sortBy, currentPage, postsPerPage));
+    dispatch(getArticles(searchValue, sortBy, currentPage, postsPerPage));
   };
 
   return (

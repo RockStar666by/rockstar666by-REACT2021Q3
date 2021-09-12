@@ -46,7 +46,7 @@
     "prettier": "2.3.0",
     "ts-node": "^10.1.0",
     "webpack": "^5.47.1",
-    "webpack-cli": "^4.7.2",
+    "webpack-cli": "^4.8.0",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
